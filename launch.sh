@@ -21,6 +21,7 @@ until [ -f $scheduler_file ]
 do
      sleep 5
 done
+echo "Scheduler started"
 
 echo "Starting workers"
 
@@ -31,6 +32,8 @@ srun dask-worker \
 --scheduler-file $scheduler_file \
     --interface hsn0 \
     --nworkers 1 
+echo "Workers started"
+
 
 echo "Killing scheduler"
 kill -9 $dask_pid
