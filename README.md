@@ -5,7 +5,7 @@ This README provides instructions to set up and execute code remotely on a NERSC
 ## Prerequisites
 
 1. **Set Up SFAPI Client Keys**:
-   - Go to the [NERSC Dashboard](https://my.nersc.gov/) and navigate to **Profile > Create an SF API Client Key**.
+   - Go to the [NERSC Dashboard](https://iris.nersc.gov/) and navigate to **Profile > Create an SF API Client Key**.
    - Enter the IP address of your local machine to authorize it.
    - Download the following files and save them locally:
      - `clientid.txt`
