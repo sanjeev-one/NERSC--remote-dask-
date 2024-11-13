@@ -1,4 +1,4 @@
-
+#example dask start script provided by NERSC
 echo "Starting scheduler..."
 
 scheduler_file=$SCRATCH/scheduler_file.json
