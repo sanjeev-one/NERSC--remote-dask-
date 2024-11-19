@@ -44,3 +44,9 @@ The `main.ipynb` notebook orchestrates the setup and management of a Dask cluste
 4. **Monitoring Progress**:
    - The Dask dashboard at `localhost:8787` will provide a live view of tasks, resource usage, and other important cluster metrics.
 
+
+
+## if you edit requirements.in then run this to compile dependencies to requirements.txt
+uv pip compile requirements.in -o requirements.txt
+
+uv pip sync requirements.txt

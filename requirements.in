@@ -1,0 +1,16 @@
+sfapi_client
+dask==2023.12.1
+bokeh!=3.0.*,>=2.4.2
+
+dask[distributed]
+
+#packaes used for prefect flow and others
+
+lz4
+numpy
+pandas
+cloudpickle==3.1.0
+prefect==2.20.13
+prefect-dask
+
+jupyterlab
