@@ -6,12 +6,11 @@ alembic==1.14.0
     # via prefect
 annotated-types==0.7.0
     # via pydantic
-anyio==4.6.2.post1
+anyio==4.6.0
     # via
     #   httpx
     #   jupyter-server
     #   prefect
-    #   starlette
 appnope==0.1.4
     # via ipykernel
 apprise==1.9.0
@@ -28,7 +27,9 @@ asttokens==2.4.1
     # via stack-data
 async-lru==2.0.4
     # via jupyterlab
-asyncpg==0.30.0
+async-timeout==5.0.1
+    # via asyncpg
+asyncpg==0.29.0
     # via prefect
 attrs==24.2.0
     # via
@@ -45,12 +46,15 @@ bleach==6.2.0
 bokeh==3.6.1
     # via -r requirements.in
 cachetools==5.5.0
-    # via prefect
+    # via
+    #   google-auth
+    #   prefect
 certifi==2024.8.30
     # via
     #   apprise
     #   httpcore
     #   httpx
+    #   kubernetes
     #   requests
 cffi==1.17.1
     # via
@@ -79,7 +83,7 @@ contourpy==1.3.1
     # via bokeh
 coolname==2.2.0
     # via prefect
-croniter==4.0.0
+croniter==3.0.4
     # via prefect
 cryptography==43.0.3
     # via
@@ -97,20 +101,24 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
-deprecated==1.2.15
-    # via opentelemetry-api
 distributed==2023.12.1
     # via
     #   dask
     #   prefect-dask
+dnspython==2.7.0
+    # via email-validator
 docker==7.1.0
     # via prefect
+durationpy==0.9
+    # via kubernetes
+email-validator==2.2.0
+    # via pydantic
 exceptiongroup==1.2.2
-    # via prefect
+    # via
+    #   prefect
+    #   prefect-dask
 executing==2.1.0
     # via stack-data
-fastapi==0.115.5
-    # via prefect
 fastjsonschema==2.20.0
     # via nbformat
 fqdn==1.5.1
@@ -119,6 +127,8 @@ fsspec==2024.10.0
     # via
     #   dask
     #   prefect
+google-auth==2.36.0
+    # via kubernetes
 graphviz==0.20.3
     # via prefect
 greenlet==3.1.1
@@ -151,19 +161,22 @@ hyperframe==6.0.1
 idna==3.10
     # via
     #   anyio
+    #   email-validator
     #   httpx
     #   jsonschema
     #   requests
 importlib-metadata==8.5.0
-    # via
-    #   dask
-    #   opentelemetry-api
+    # via dask
+importlib-resources==6.4.5
+    # via prefect
 ipykernel==6.29.5
     # via jupyterlab
 ipython==8.29.0
     # via ipykernel
 isoduration==20.11.0
     # via jsonschema
+itsdangerous==2.2.0
+    # via prefect
 jedi==0.19.2
     # via ipython
 jinja2==3.1.4
@@ -226,6 +239,8 @@ jupyterlab-pygments==0.3.0
     # via nbconvert
 jupyterlab-server==2.27.3
     # via jupyterlab
+kubernetes==31.0.0
+    # via prefect
 locket==1.0.0
     # via
     #   distributed
@@ -273,9 +288,9 @@ numpy==2.1.3
     #   contourpy
     #   pandas
 oauthlib==3.2.2
-    # via requests-oauthlib
-opentelemetry-api==1.28.2
-    # via prefect
+    # via
+    #   kubernetes
+    #   requests-oauthlib
 orjson==3.10.11
     # via prefect
 overrides==7.7.0
@@ -303,7 +318,7 @@ partd==1.4.2
     # via dask
 pathspec==0.12.1
     # via prefect
-pendulum==3.0.0
+pendulum==2.1.2
     # via prefect
 pexpect==4.9.0
     # via ipython
@@ -311,16 +326,14 @@ pillow==11.0.0
     # via bokeh
 platformdirs==4.3.6
     # via jupyter-core
-prefect==3.1.2
+prefect==2.20.13
     # via
     #   -r requirements.in
     #   prefect-dask
-prefect-dask==0.3.2
+prefect-dask==0.2.10
     # via -r requirements.in
 prometheus-client==0.21.0
-    # via
-    #   jupyter-server
-    #   prefect
+    # via jupyter-server
 prompt-toolkit==3.0.48
     # via ipython
 psutil==6.1.0
@@ -333,25 +346,25 @@ ptyprocess==0.7.0
     #   terminado
 pure-eval==0.2.3
     # via stack-data
+pyasn1==0.6.1
+    # via
+    #   pyasn1-modules
+    #   rsa
+pyasn1-modules==0.4.1
+    # via google-auth
 pycparser==2.22
     # via cffi
 pydantic==2.9.2
     # via
-    #   fastapi
     #   prefect
-    #   pydantic-extra-types
     #   pydantic-settings
     #   sfapi-client
 pydantic-core==2.23.4
     # via
     #   prefect
     #   pydantic
-pydantic-extra-types==2.10.0
-    # via prefect
 pydantic-settings==2.6.1
-    # via
-    #   prefect
-    #   sfapi-client
+    # via sfapi-client
 pygments==2.18.0
     # via
     #   ipython
@@ -363,14 +376,16 @@ python-dateutil==2.9.0.post0
     #   croniter
     #   dateparser
     #   jupyter-client
+    #   kubernetes
     #   pandas
     #   pendulum
     #   prefect
-    #   time-machine
 python-dotenv==1.0.1
     # via pydantic-settings
 python-json-logger==2.0.7
     # via jupyter-events
+python-multipart==0.0.17
+    # via prefect
 python-slugify==8.0.4
     # via prefect
 pytz==2024.2
@@ -379,6 +394,8 @@ pytz==2024.2
     #   dateparser
     #   pandas
     #   prefect
+pytzdata==2020.1
+    # via pendulum
 pyyaml==6.0.2
     # via
     #   apprise
@@ -386,6 +403,7 @@ pyyaml==6.0.2
     #   dask
     #   distributed
     #   jupyter-events
+    #   kubernetes
     #   prefect
 pyzmq==26.2.0
     # via
@@ -406,9 +424,12 @@ requests==2.32.3
     #   apprise
     #   docker
     #   jupyterlab-server
+    #   kubernetes
     #   requests-oauthlib
 requests-oauthlib==2.0.0
-    # via apprise
+    # via
+    #   apprise
+    #   kubernetes
 rfc3339-validator==0.1.4
     # via
     #   jsonschema
@@ -426,6 +447,8 @@ rpds-py==0.21.0
     # via
     #   jsonschema
     #   referencing
+rsa==4.9
+    # via google-auth
 ruamel-yaml==0.18.6
     # via prefect
 ruamel-yaml-clib==0.2.12
@@ -441,6 +464,7 @@ shellingham==1.5.4
 six==1.16.0
     # via
     #   asttokens
+    #   kubernetes
     #   python-dateutil
     #   rfc3339-validator
 sniffio==1.3.1
@@ -453,14 +477,12 @@ sortedcontainers==2.4.0
     # via distributed
 soupsieve==2.6
     # via beautifulsoup4
-sqlalchemy==2.0.36
+sqlalchemy==2.0.35
     # via
     #   alembic
     #   prefect
 stack-data==0.6.3
     # via ipython
-starlette==0.41.3
-    # via fastapi
 tblib==3.0.0
     # via distributed
 tenacity==9.0.0
@@ -471,8 +493,6 @@ terminado==0.18.1
     #   jupyter-server-terminals
 text-unidecode==1.3
     # via python-slugify
-time-machine==2.16.0
-    # via pendulum
 tinycss2==1.4.0
     # via nbconvert
 toml==0.10.2
@@ -505,7 +525,7 @@ traitlets==5.14.3
     #   nbclient
     #   nbconvert
     #   nbformat
-typer==0.13.1
+typer==0.12.5
     # via prefect
 types-python-dateutil==2.9.0.20241003
     # via arrow
@@ -513,18 +533,14 @@ typing-extensions==4.12.2
     # via
     #   aiosqlite
     #   alembic
-    #   fastapi
     #   ipython
     #   prefect
     #   pydantic
     #   pydantic-core
-    #   pydantic-extra-types
     #   sqlalchemy
     #   typer
 tzdata==2024.2
-    # via
-    #   pandas
-    #   pendulum
+    # via pandas
 tzlocal==5.2
     # via dateparser
 ujson==5.10.0
@@ -535,6 +551,7 @@ urllib3==2.2.3
     # via
     #   distributed
     #   docker
+    #   kubernetes
     #   requests
 uvicorn==0.32.0
     # via prefect
@@ -547,11 +564,11 @@ webencodings==0.5.1
     #   bleach
     #   tinycss2
 websocket-client==1.8.0
-    # via jupyter-server
+    # via
+    #   jupyter-server
+    #   kubernetes
 websockets==13.1
     # via prefect
-wrapt==1.16.0
-    # via deprecated
 xyzservices==2024.9.0
     # via bokeh
 zict==3.0.0
