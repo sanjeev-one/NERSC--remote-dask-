@@ -9,12 +9,25 @@ annotated-types==0.7.0
 anyio==4.6.2.post1
     # via
     #   httpx
+    #   jupyter-server
     #   prefect
     #   starlette
+appnope==0.1.4
+    # via ipykernel
 apprise==1.9.0
     # via prefect
+argon2-cffi==23.1.0
+    # via jupyter-server
+argon2-cffi-bindings==21.2.0
+    # via argon2-cffi
+arrow==1.3.0
+    # via isoduration
 asgi-lifespan==2.1.0
     # via prefect
+asttokens==2.4.1
+    # via stack-data
+async-lru==2.0.4
+    # via jupyterlab
 asyncpg==0.30.0
     # via prefect
 attrs==24.2.0
@@ -23,6 +36,12 @@ attrs==24.2.0
     #   referencing
 authlib==1.3.2
     # via sfapi-client
+babel==2.16.0
+    # via jupyterlab-server
+beautifulsoup4==4.12.3
+    # via nbconvert
+bleach==6.2.0
+    # via nbconvert
 bokeh==3.6.1
     # via -r requirements.in
 cachetools==5.5.0
@@ -34,7 +53,9 @@ certifi==2024.8.30
     #   httpx
     #   requests
 cffi==1.17.1
-    # via cryptography
+    # via
+    #   argon2-cffi-bindings
+    #   cryptography
 charset-normalizer==3.4.0
     # via requests
 click==8.1.7
@@ -52,6 +73,8 @@ cloudpickle==3.1.0
     #   prefect
 colorama==0.4.6
     # via griffe
+comm==0.2.2
+    # via ipykernel
 contourpy==1.3.1
     # via bokeh
 coolname==2.2.0
@@ -68,6 +91,12 @@ dask==2023.12.1
     #   distributed
 dateparser==1.2.0
     # via prefect
+debugpy==1.8.8
+    # via ipykernel
+decorator==5.1.1
+    # via ipython
+defusedxml==0.7.1
+    # via nbconvert
 deprecated==1.2.15
     # via opentelemetry-api
 distributed==2023.12.1
@@ -78,8 +107,14 @@ docker==7.1.0
     # via prefect
 exceptiongroup==1.2.2
     # via prefect
+executing==2.1.0
+    # via stack-data
 fastapi==0.115.5
     # via prefect
+fastjsonschema==2.20.0
+    # via nbformat
+fqdn==1.5.1
+    # via jsonschema
 fsspec==2024.10.0
     # via
     #   dask
@@ -104,6 +139,7 @@ httpcore==1.0.7
     #   prefect
 httpx==0.27.2
     # via
+    #   jupyterlab
     #   prefect
     #   sfapi-client
 humanize==4.11.0
@@ -116,27 +152,80 @@ idna==3.10
     # via
     #   anyio
     #   httpx
+    #   jsonschema
     #   requests
 importlib-metadata==8.5.0
     # via
     #   dask
     #   opentelemetry-api
+ipykernel==6.29.5
+    # via jupyterlab
+ipython==8.29.0
+    # via ipykernel
+isoduration==20.11.0
+    # via jsonschema
+jedi==0.19.2
+    # via ipython
 jinja2==3.1.4
     # via
     #   bokeh
     #   distributed
     #   jinja2-humanize-extension
+    #   jupyter-server
+    #   jupyterlab
+    #   jupyterlab-server
+    #   nbconvert
     #   prefect
 jinja2-humanize-extension==0.4.0
     # via prefect
+json5==0.9.28
+    # via jupyterlab-server
 jsonpatch==1.33
     # via prefect
 jsonpointer==3.0.0
-    # via jsonpatch
+    # via
+    #   jsonpatch
+    #   jsonschema
 jsonschema==4.23.0
-    # via prefect
+    # via
+    #   jupyter-events
+    #   jupyterlab-server
+    #   nbformat
+    #   prefect
 jsonschema-specifications==2024.10.1
     # via jsonschema
+jupyter-client==8.6.3
+    # via
+    #   ipykernel
+    #   jupyter-server
+    #   nbclient
+jupyter-core==5.7.2
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
+    #   jupyterlab
+    #   nbclient
+    #   nbconvert
+    #   nbformat
+jupyter-events==0.10.0
+    # via jupyter-server
+jupyter-lsp==2.2.5
+    # via jupyterlab
+jupyter-server==2.14.2
+    # via
+    #   jupyter-lsp
+    #   jupyterlab
+    #   jupyterlab-server
+    #   notebook-shim
+jupyter-server-terminals==0.5.3
+    # via jupyter-server
+jupyterlab==4.3.1
+    # via -r requirements.in
+jupyterlab-pygments==0.3.0
+    # via nbconvert
+jupyterlab-server==2.27.3
+    # via jupyterlab
 locket==1.0.0
     # via
     #   distributed
@@ -153,10 +242,30 @@ markupsafe==3.0.2
     # via
     #   jinja2
     #   mako
+    #   nbconvert
+matplotlib-inline==0.1.7
+    # via
+    #   ipykernel
+    #   ipython
 mdurl==0.1.2
     # via markdown-it-py
+mistune==3.0.2
+    # via nbconvert
 msgpack==1.1.0
     # via distributed
+nbclient==0.10.0
+    # via nbconvert
+nbconvert==7.16.4
+    # via jupyter-server
+nbformat==5.10.4
+    # via
+    #   jupyter-server
+    #   nbclient
+    #   nbconvert
+nest-asyncio==1.6.0
+    # via ipykernel
+notebook-shim==0.2.4
+    # via jupyterlab
 numpy==2.1.3
     # via
     #   -r requirements.in
@@ -169,24 +278,39 @@ opentelemetry-api==1.28.2
     # via prefect
 orjson==3.10.11
     # via prefect
+overrides==7.7.0
+    # via jupyter-server
 packaging==24.2
     # via
     #   bokeh
     #   dask
     #   distributed
+    #   ipykernel
+    #   jupyter-server
+    #   jupyterlab
+    #   jupyterlab-server
+    #   nbconvert
     #   prefect
 pandas==2.2.3
     # via
     #   -r requirements.in
     #   bokeh
+pandocfilters==1.5.1
+    # via nbconvert
+parso==0.8.4
+    # via jedi
 partd==1.4.2
     # via dask
 pathspec==0.12.1
     # via prefect
 pendulum==3.0.0
     # via prefect
+pexpect==4.9.0
+    # via ipython
 pillow==11.0.0
     # via bokeh
+platformdirs==4.3.6
+    # via jupyter-core
 prefect==3.1.2
     # via
     #   -r requirements.in
@@ -194,9 +318,21 @@ prefect==3.1.2
 prefect-dask==0.3.2
     # via -r requirements.in
 prometheus-client==0.21.0
-    # via prefect
+    # via
+    #   jupyter-server
+    #   prefect
+prompt-toolkit==3.0.48
+    # via ipython
 psutil==6.1.0
-    # via distributed
+    # via
+    #   distributed
+    #   ipykernel
+ptyprocess==0.7.0
+    # via
+    #   pexpect
+    #   terminado
+pure-eval==0.2.3
+    # via stack-data
 pycparser==2.22
     # via cffi
 pydantic==2.9.2
@@ -217,17 +353,24 @@ pydantic-settings==2.6.1
     #   prefect
     #   sfapi-client
 pygments==2.18.0
-    # via rich
+    # via
+    #   ipython
+    #   nbconvert
+    #   rich
 python-dateutil==2.9.0.post0
     # via
+    #   arrow
     #   croniter
     #   dateparser
+    #   jupyter-client
     #   pandas
     #   pendulum
     #   prefect
     #   time-machine
 python-dotenv==1.0.1
     # via pydantic-settings
+python-json-logger==2.0.7
+    # via jupyter-events
 python-slugify==8.0.4
     # via prefect
 pytz==2024.2
@@ -242,24 +385,39 @@ pyyaml==6.0.2
     #   bokeh
     #   dask
     #   distributed
+    #   jupyter-events
     #   prefect
+pyzmq==26.2.0
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
 readchar==4.2.1
     # via prefect
 referencing==0.35.1
     # via
     #   jsonschema
     #   jsonschema-specifications
+    #   jupyter-events
 regex==2024.11.6
     # via dateparser
 requests==2.32.3
     # via
     #   apprise
     #   docker
+    #   jupyterlab-server
     #   requests-oauthlib
 requests-oauthlib==2.0.0
     # via apprise
 rfc3339-validator==0.1.4
-    # via prefect
+    # via
+    #   jsonschema
+    #   jupyter-events
+    #   prefect
+rfc3986-validator==0.1.1
+    # via
+    #   jsonschema
+    #   jupyter-events
 rich==13.9.4
     # via
     #   prefect
@@ -272,12 +430,17 @@ ruamel-yaml==0.18.6
     # via prefect
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
+send2trash==1.8.3
+    # via jupyter-server
+setuptools==75.5.0
+    # via jupyterlab
 sfapi-client==0.3.1
     # via -r requirements.in
 shellingham==1.5.4
     # via typer
 six==1.16.0
     # via
+    #   asttokens
     #   python-dateutil
     #   rfc3339-validator
 sniffio==1.3.1
@@ -288,20 +451,30 @@ sniffio==1.3.1
     #   prefect
 sortedcontainers==2.4.0
     # via distributed
+soupsieve==2.6
+    # via beautifulsoup4
 sqlalchemy==2.0.36
     # via
     #   alembic
     #   prefect
+stack-data==0.6.3
+    # via ipython
 starlette==0.41.3
     # via fastapi
 tblib==3.0.0
     # via distributed
 tenacity==9.0.0
     # via sfapi-client
+terminado==0.18.1
+    # via
+    #   jupyter-server
+    #   jupyter-server-terminals
 text-unidecode==1.3
     # via python-slugify
 time-machine==2.16.0
     # via pendulum
+tinycss2==1.4.0
+    # via nbconvert
 toml==0.10.2
     # via prefect
 toolz==1.0.0
@@ -313,13 +486,35 @@ tornado==6.4.1
     # via
     #   bokeh
     #   distributed
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
+    #   jupyterlab
+    #   terminado
+traitlets==5.14.3
+    # via
+    #   comm
+    #   ipykernel
+    #   ipython
+    #   jupyter-client
+    #   jupyter-core
+    #   jupyter-events
+    #   jupyter-server
+    #   jupyterlab
+    #   matplotlib-inline
+    #   nbclient
+    #   nbconvert
+    #   nbformat
 typer==0.13.1
     # via prefect
+types-python-dateutil==2.9.0.20241003
+    # via arrow
 typing-extensions==4.12.2
     # via
     #   aiosqlite
     #   alembic
     #   fastapi
+    #   ipython
     #   prefect
     #   pydantic
     #   pydantic-core
@@ -334,6 +529,8 @@ tzlocal==5.2
     # via dateparser
 ujson==5.10.0
     # via prefect
+uri-template==1.3.0
+    # via jsonschema
 urllib3==2.2.3
     # via
     #   distributed
@@ -341,6 +538,16 @@ urllib3==2.2.3
     #   requests
 uvicorn==0.32.0
     # via prefect
+wcwidth==0.2.13
+    # via prompt-toolkit
+webcolors==24.11.1
+    # via jsonschema
+webencodings==0.5.1
+    # via
+    #   bleach
+    #   tinycss2
+websocket-client==1.8.0
+    # via jupyter-server
 websockets==13.1
     # via prefect
 wrapt==1.16.0
