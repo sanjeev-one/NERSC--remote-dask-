@@ -72,6 +72,7 @@ click==8.1.7
     #   uvicorn
 cloudpickle==3.1.0
     # via
+    #   -r requirements.in
     #   dask
     #   distributed
     #   prefect
@@ -115,6 +116,8 @@ email-validator==2.2.0
     # via pydantic
 exceptiongroup==1.2.2
     # via
+    #   anyio
+    #   ipython
     #   prefect
     #   prefect-dask
 executing==2.1.0
@@ -497,6 +500,8 @@ tinycss2==1.4.0
     # via nbconvert
 toml==0.10.2
     # via prefect
+tomli==2.1.0
+    # via jupyterlab
 toolz==1.0.0
     # via
     #   dask
@@ -533,12 +538,16 @@ typing-extensions==4.12.2
     # via
     #   aiosqlite
     #   alembic
+    #   anyio
+    #   async-lru
     #   ipython
     #   prefect
     #   pydantic
     #   pydantic-core
+    #   rich
     #   sqlalchemy
     #   typer
+    #   uvicorn
 tzdata==2024.2
     # via pandas
 tzlocal==5.2

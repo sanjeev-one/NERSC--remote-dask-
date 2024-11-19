@@ -9,7 +9,7 @@ dask[distributed]
 lz4
 numpy
 pandas
-
+cloudpickle==3.1.0
 prefect==2.20.13
 prefect-dask
 
